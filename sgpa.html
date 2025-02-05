@@ -1,0 +1,69 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>SGPA Calculator</title> 
+     
+    <style> 
+        .subject-group { 
+            margin-bottom: 10px; 
+        } 
+    </style> 
+</head> 
+<body> 
+    <h1>SGPA CALCULATOR</h1> 
+    <form id="sgpa"> 
+        <div id="subjects"> 
+            <div class="subject-group"> 
+                <label for="sub1">Subject:</label> 
+                <input type="text" name="subject" required> 
+                <label for="credit1">Credit:</label> 
+                <input type="number" name="credit" required> 
+                <label for="grade1">Grade:</label> 
+                <input type="number" name="grade" required> 
+            </div> 
+        </div> 
+        <br> 
+        <button type="button" onclick="addSubject()">Add another Subject</button> 
+        <button type="button" onclick="calculateSGPA()">Calculate SGPA</button> 
+    </form> 
+    <p id="result"></p>  
+     
+    <script> 
+        let subjectCount = 1; 
+ 
+        function addSubject() { 
+            subjectCount++; 
+            const subjectsDiv = document.getElementById('subjects'); 
+            const newSubjectGroup = document.createElement('div'); 
+            newSubjectGroup.classList.add('subject-group'); 
+            newSubjectGroup.innerHTML = ` 
+                <label for="sub${subjectCount}">Subject:</label> 
+                <input type="text" name="subject" required> 
+                <label for="credit${subjectCount}">Credit:</label> 
+                <input type="number" name="credit" required> 
+                <label for="grade${subjectCount}">Grade:</label> 
+                <input type="number" name="grade" required> 
+            `; 
+            subjectsDiv.appendChild(newSubjectGroup); 
+        } 
+ 
+        function calculateSGPA() { 
+            const subjects = document.querySelectorAll('.subject-group'); 
+            let totalCredits = 0; 
+            let totalGradePoints = 0; 
+ 
+            subjects.forEach(subject => { 
+                const credit = parseFloat(subject.querySelector('input[name="credit"]').value); 
+                const grade = parseFloat(subject.querySelector('input[name="grade"]').value); 
+                totalCredits += credit; 
+                totalGradePoints += credit * grade; 
+            }); 
+ 
+            const sgpa = totalGradePoints / totalCredits; 
+            document.getElementById('result').textContent = `SGPA: ${sgpa.toFixed(2)}`; 
+        } 
+    </script> 
+</body> 
+</html> 
