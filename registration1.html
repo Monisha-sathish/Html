@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Registration</title>
+    <link rel="stylesheet" href="styles5.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Technical Event Registration</h2>
+        <form id="registrationForm">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}">
+
+            <label for="college">College Name:</label>
+            <input type="text" id="college" name="college" required>
+
+            <label for="year">Year of Study:</label>
+            <select id="year" name="year" required>
+                <option value="">Select Year</option>
+                <option value="1st">1st Year</option>
+                <option value="2nd">2nd Year</option>
+                <option value="3rd">3rd Year</option>
+                <option value="4th">4th Year</option>
+            </select>
+
+            <!-- Added Dropdown for Technical Events -->
+            <label for="event">Select Technical Event:</label>
+            <select id="event" name="event" required>
+                <option value="">Select Event</option>
+                <option value="hackathon">Hackathon</option>
+                <option value="coding_contest">Coding Contest</option>
+                <option value="paper_presentation">Technical Paper Presentation</option>
+                <option value="robotics_challenge">Robotics Challenge</option>
+                <option value="app_development">App Development Competition</option>
+                <option value="circuit_design">Circuit Design Challenge</option>
+                <option value="technical_quiz">Quiz Competition (Technical)</option>
+                <option value="data_science">Data Science Challenge</option>
+                <option value="cad_design">Design and CAD Contest</option>
+            </select>
+
+            <button type="submit">Register</button>
+        </form>
+
+        <div id="confirmationMessage" style="display:none;">
+            <h3>Thank you for registering!</h3>
+        </div>
+    </div>
+    <script src="script1.js"></script>
+</body>
+</html>
