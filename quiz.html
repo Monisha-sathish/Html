@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Media Quiz</title>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+    <div id="quiz-container">
+        
+        <div id="welcome-screen" class="screen active">
+            <h1>Welcome to the Media Quiz</h1>
+            <button id="start-btn" class="btn">Start Quiz</button>
+        </div>
+
+     
+        <div id="question1" class="screen">
+            <h2>Question 1: What is the title of this video?</h2>
+            <video controls width="500">
+                <source src="puppy.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <form>
+                <label>
+                    <input type="radio" name="q1" value="A"> puppy video
+                </label><br>
+                <label>
+                    <input type="radio" name="q1" value="B"> baby video
+                </label><br>
+                <label>
+                    <input type="radio" name="q1" value="C"> elephant video
+                </label><br>
+                <label>
+                    <input type="radio" name="q1" value="D"> human video
+                </label><br>
+                <button type="button" class="btn next-btn" data-next="question2">Next</button>
+            </form>
+        </div>
+
+       
+        <div id="question2" class="screen">
+            <h2>Question 2: What sound is this?</h2>
+            <audio controls>
+                <source src="Kodi Vasangal Enai Theendi Ponalum.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <form>
+                <label>
+                    <input type="radio" name="q2" value="A">kandha sasti kavasam
+                </label><br>
+                <label>
+                    <input type="radio" name="q2" value="B"> Manasilayo
+                </label><br>
+                <label>
+                    <input type="radio" name="q2" value="C"> perfect song
+                </label><br>
+                <label>
+                    <input type="radio" name="q2" value="D"> kodi vasangal enai theendi ponalum
+                </label><br>
+                <button type="button" class="btn next-btn" data-next="question3">Next</button>
+            </form>
+        </div>
+
+       
+        <div id="question3" class="screen">
+            <h2>Question 3: Which animal is shown in this image?</h2>
+            <img src="animal.jpg" alt="Animal Image" width="300">
+            <form>
+                <label>
+                    <input type="radio" name="q3" value="A"> Lion
+                </label><br>
+                <label>
+                    <input type="radio" name="q3" value="B"> Tiger
+                </label><br>
+                <label>
+                    <input type="radio" name="q3" value="C"> Elephant
+                </label><br>
+                <label>
+                    <input type="radio" name="q3" value="D"> Giraffe
+                </label><br>
+                <button type="button" class="btn submit-btn">Submit Quiz</button>
+            </form>
+        </div>
+
+        
+        <div id="result-screen" class="screen">
+            <h2>Your Results</h2>
+            <p id="results"></p>
+            <button id="restart-btn" class="btn">Restart Quiz</button>
+        </div>
+    </div>
+
+    <script src="quiz.js"></script>
+</body>
+</html>
