@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Booking Application</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .booking-container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="number"], select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .result {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="booking-container">
+    <h2>Ticket Booking</h2>
+    <form id="ticketForm">
+        <div class="form-group">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="event">Event:</label>
+            <select id="event" required>
+                <option value="">Select Event</option>
+                <option value="concert">Concert</option>
+                <option value="movie">Movie</option>
+                <option value="theatre">Theatre</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="numTickets">Number of Tickets:</label>
+            <input type="number" id="numTickets" placeholder="Enter number of tickets" required>
+        </div>
+
+        <div class="form-group">
+            <label for="costPerTicket">Cost per Ticket (in $):</label>
+            <input type="number" id="costPerTicket" placeholder="Enter ticket cost" required>
+        </div>
+
+        <button type="button" onclick="calculateTotal()">Book Tickets</button>
+        <div id="totalCost" class="result"></div>
+    </form>
+</div>
+
+<script>
+    function calculateTotal() {
+        var name = document.getElementById("name").value;
+        var event = document.getElementById("event").value;
+        var numTickets = document.getElementById("numTickets").value;
+        var costPerTicket = document.getElementById("costPerTicket").value;
+        var totalCost = document.getElementById("totalCost");
+
+        if (name && event && numTickets && costPerTicket) {
+            var total = numTickets * costPerTicket;
+            totalCost.textContent = name + ", your total for the " + event + " is: $" + total;
+        } else {
+            totalCost.textContent = "Please fill out all fields correctly.";
+        }
+    }
+</script>
+
+</body>
+</html>
